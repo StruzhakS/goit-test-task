@@ -1,8 +1,15 @@
+import { Route, Routes } from 'react-router-dom';
+import Home from './Components/Home/Home';
+import Tweet from './Components/Tweet/Tweet';
+
 function App() {
   return (
-    <div>
-      <h1>ну давай ще раз почнем</h1>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tweet" element={<Tweet />} />
+      </Routes>
+    </>
   );
 }
 

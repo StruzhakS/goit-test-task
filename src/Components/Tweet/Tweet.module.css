@@ -1,0 +1,25 @@
+.list {
+  list-style: none;
+  text-align: center;
+  /* background-color: #5736a3; */
+}
+.listItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 380px;
+  height: 460px;
+  background-color: #5736a3;
+
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.img {
+  border-radius: 50%;
+  margin: 0 auto;
+}
