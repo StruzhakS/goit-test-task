@@ -9,7 +9,7 @@ import { store } from './Store/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter basename="/goit-test-task">
+  <BrowserRouter basename="goit-test-task">
     <Provider store={store}>
       <App />
     </Provider>
