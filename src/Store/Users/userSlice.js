@@ -3,7 +3,7 @@ import { getUsers, updateUser } from './userOperation';
 
 const initialState = {
   users: [],
-  filter: '',
+  filter: 'all',
   //   following: false,
   isLoading: false,
   error: '',

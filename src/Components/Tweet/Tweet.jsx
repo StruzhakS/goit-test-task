@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import ButtonF from '../ButtonF/ButtonF';
 import s from './Tweet.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../Store/Users/userOperation';
 import FilterUsers from '../FilterUsers/FilterUsers';
+import goit from '../../img/goit.png';
+
 const LIMIT = 3;
 const Tweet = () => {
   const users = useSelector(store => store.users.users);
@@ -14,42 +16,33 @@ const Tweet = () => {
   const followingUser = users.filter(el => el.following && el);
 
   const followUsers = users.filter(el => !el.following && el);
-  console.log(page);
-  //   console.log(users.length);
 
-  // eslint-disable-next-line no-mixed-operators
-  //   const filterdUsers =
-  //     (filter === 'all' && users) ||
-  //     (filter === 'following' && followingUser) ||
-  //     (filter === 'follow' && followUsers);
-
-  //   useEffect(() => {
-  //     const usersCard = async () => {
-  //       try {
-  //         const data = dispatch(getUsers({ page, limit: LIMIT }));
-  //         return data;
-  //       } catch (error) {
-  //         console.log(error.message);
-  //       }
-  //     };
-  //     usersCard();
-  //   }, [dispatch, page]);
   useEffect(() => {
-    dispatch(getUsers({ page, limit: LIMIT }));
+    users.length === 0 && dispatch(getUsers({ page, limit: LIMIT }));
+  }, [dispatch, page, users.length]);
+
+  const handleClick = () => {
+    setPage(prev => prev + 1);
+  };
+
+  useEffect(() => {
+    page > 1 && dispatch(getUsers({ page, limit: LIMIT }));
   }, [dispatch, page]);
 
-  //   console.log(followUsers);
   return (
     <div className={s.box}>
-      <ul className={s.list}>
-        <Link to={'/'}>Go to home</Link>
+      <div className={s.boxWrapper}>
+        <NavLink className={s.backBtn} to={'/'}>
+          Go to home
+        </NavLink>
         <FilterUsers />
+      </div>
+      <ul className={s.list}>
         {filter === 'all' &&
           users.map(({ user, avatar, followers, tweets, id, following }, idx) => {
-            console.log('all');
             return (
               <li key={idx} className={s.listItem}>
-                <h2>{user}</h2>
+                <img src={goit} alt="" width="76px" className={s.imgGoit} />
                 <img src={avatar} alt={users} className={s.img} width="80" />
                 <span className={s.text}>{tweets} tweets</span>
                 <span className={s.text}>
@@ -62,13 +55,13 @@ const Tweet = () => {
               </li>
             );
           })}
-        {filter === 'all' && <button onClick={() => setPage(prev => prev + 1)}>Load More</button>}
+
         {filter === 'following' &&
           followingUser.map(({ user, avatar, followers, tweets, id, following }, idx) => {
             console.log('following');
             return (
               <li key={idx} className={s.listItem}>
-                <h2>{user}</h2>
+                <img src={goit} alt="" width="76px" className={s.imgGoit} />
                 <img src={avatar} alt={users} className={s.img} width="80" />
                 <span className={s.text}>{tweets} tweets</span>
                 <span className={s.text}>
@@ -83,10 +76,9 @@ const Tweet = () => {
           })}
         {filter === 'follow' &&
           followUsers.map(({ user, avatar, followers, tweets, id, following }, idx) => {
-            console.log('follow');
             return (
               <li key={idx} className={s.listItem}>
-                <h2>{user}</h2>
+                <img src={goit} alt="" width="76px" className={s.imgGoit} />
                 <img src={avatar} alt={users} className={s.img} width="80" />
                 <span className={s.text}>{tweets} tweets</span>
                 <span className={s.text}>
@@ -100,6 +92,11 @@ const Tweet = () => {
             );
           })}
       </ul>
+      {filter === 'all' && users.length % 3 === 0 && (
+        <button className={s.loadMore} onClick={handleClick}>
+          Load More
+        </button>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 // import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import s from './Home.module.css';
 // import { getUsers } from '../../Store/Users/userOperation';
 
 const Home = () => {
@@ -8,7 +9,11 @@ const Home = () => {
   // dispatch(getUsers());
 
   // const users = useSelector(store => store.users.users);
-  return <Link to={'tweet'}>Go to tweet</Link>;
+  return (
+    <NavLink className={s.homeBtn} to={'tweet'}>
+      Go to tweet
+    </NavLink>
+  );
 };
 
 export default Home;

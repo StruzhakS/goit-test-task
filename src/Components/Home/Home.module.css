@@ -1,0 +1,19 @@
+.homeBtn {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  text-decoration: none;
+
+  width: 200px;
+  height: 50px;
+  background-color: yellow;
+  border-radius: 20px;
+  text-transform: uppercase;
+  color: brown;
+  font-weight: bold;
+}
+
+.homeBtn:hover {
+  background-color: rgb(255, 204, 0);
+}

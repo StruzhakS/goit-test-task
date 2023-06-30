@@ -1,0 +1,18 @@
+.generalBox {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 25px;
+  align-items: center;
+  background: rgb(15, 2, 237);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 2, 237, 1) 0%,
+    rgba(156, 7, 241, 1) 23%,
+    rgba(221, 29, 241, 1) 37%,
+    rgba(8, 199, 239, 1) 83%,
+    rgba(8, 199, 239, 1) 91%,
+    rgba(0, 108, 255, 0.9837184873949579) 100%
+  );
+  background-image: url(./img/twit-violeet.jpg);
+}

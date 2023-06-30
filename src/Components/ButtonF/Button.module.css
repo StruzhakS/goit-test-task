@@ -1,5 +1,5 @@
 .button {
-  background-color: #ebd8ff;
+  background-color: #ffffff;
   height: 50px;
   width: 196px;
   color: #373737;
@@ -11,9 +11,10 @@
   border-color: transparent;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   cursor: pointer;
+  margin-bottom: 36px;
 }
 .button:hover {
-  background-color: #e1c8fd;
+  background-color: #ffffffc8;
 }
 
 .buttonActive {
@@ -29,6 +30,7 @@
   border-color: transparent;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   cursor: pointer;
+  margin-bottom: 36px;
 }
 
 .buttonActive:hover {
