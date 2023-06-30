@@ -1,35 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import s from './Button.module.css';
-import { updateUser } from '../../tweetApi';
+import { updateUser } from '../../Store/Users/userOperation';
+import { useDispatch } from 'react-redux';
 // import { updateUser } from '../../tweetApi';
-const ButtonF = ({ status, id, setStatus }) => {
+const ButtonF = ({ id, stote, following }) => {
   const [btnName, setBtnName] = useState('Follow');
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    if (btnName === 'Follow') {
-      //   console.log('Follow =>>>', btnName);
-      updateUser(id, 'Following');
-      setBtnName('Following');
-      setStatus('Following');
+    if (following === false) {
+      //   setBtnName('Following');
+      dispatch(updateUser({ id, following: true }));
       return;
     }
-    if (btnName === 'Following') {
-      //   console.log('Following =>>>', btnName);
-
-      setBtnName('Follow');
-      setStatus('Follow');
-      updateUser(id, 'Follow');
-
+    if (following === true) {
+      //   setBtnName('Follow');
+      dispatch(updateUser({ id, following: false }));
       return;
     }
   };
 
-  useEffect(() => {
-    setBtnName(status);
-  }, [status]);
+  //   useEffect(() => {
+  //     setBtnName(status);
+  //   }, [status]);
+
   return (
-    <button onClick={handleClick} className={btnName === 'Follow' ? s.button : s.buttonActive}>
-      {btnName}
+    <button onClick={handleClick} className={!following ? s.button : s.buttonActive}>
+      {following ? 'Following' : 'Follow'}
     </button>
   );
 };
