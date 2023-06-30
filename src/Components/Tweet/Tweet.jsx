@@ -48,7 +48,7 @@ const Tweet = () => {
                 <span className={s.text}>
                   {following
                     ? (followers + 1).toLocaleString('en')
-                    : followers.toLocaleString('en')}
+                    : followers.toLocaleString('en')}{' '}
                   followers
                 </span>
                 <ButtonF following={following} id={id} />
@@ -67,7 +67,7 @@ const Tweet = () => {
                 <span className={s.text}>
                   {following
                     ? (followers + 1).toLocaleString('en')
-                    : followers.toLocaleString('en')}
+                    : followers.toLocaleString('en')}{' '}
                   followers
                 </span>
                 <ButtonF following={following} id={id} />
@@ -84,7 +84,7 @@ const Tweet = () => {
                 <span className={s.text}>
                   {following
                     ? (followers + 1).toLocaleString('en')
-                    : followers.toLocaleString('en')}
+                    : followers.toLocaleString('en')}{' '}
                   followers
                 </span>
                 <ButtonF following={following} id={id} />
