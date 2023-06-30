@@ -9,7 +9,6 @@ const FilterUsers = () => {
     <select
       className={s.select}
       name="filter"
-      // //   style={selectStyles}
       onChange={e => dispatch(changeFilter(e.target.value))}
       value={filter}
     >

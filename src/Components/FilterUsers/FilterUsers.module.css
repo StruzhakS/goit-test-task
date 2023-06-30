@@ -6,7 +6,6 @@
   line-height: 1.2;
   width: 100px;
   height: 40px;
-  /* padding: 15px; */
   text-decoration: none;
   background-color: #5cd3a8;
   border-radius: 10px;
@@ -17,5 +16,4 @@
 }
 .select:hover {
   background-color: #11cd88;
-  /* color: white; */
 }
