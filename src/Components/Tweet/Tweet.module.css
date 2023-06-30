@@ -3,9 +3,9 @@
   padding: 0;
   list-style: none;
   text-align: center;
-  width: 430px;
-  height: 600px;
-  overflow-y: scroll;
+  /* width: 430px;
+  height: 600px; */
+  /* overflow-y: scroll; */
 }
 
 .listItem {
@@ -21,7 +21,9 @@
   padding: 15px;
   border: 1px solid black;
   border-radius: 20px;
+  border-color: transparent;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .img {
@@ -32,4 +34,8 @@
   text-transform: uppercase;
   font-size: 24px;
   color: #ebd8ff;
+}
+.box {
+  display: flex;
+  flex-direction: column;
 }

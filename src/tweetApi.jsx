@@ -1,7 +1,12 @@
 import axios from 'axios';
 
-export async function getUsersApi() {
-  const { data } = await axios('https://64870eb0beba6297278fcbfc.mockapi.io/Phonebook/users');
+// const url = 'https://64870eb0beba6297278fcbfc.mockapi.io/Phonebook/users'
+axios.defaults.baseURL = 'https://64870eb0beba6297278fcbfc.mockapi.io/Phonebook/users';
+// url.searchParams.append('page', 1);
+// url.searchParams.append('limit', 3);
+
+export async function getUsersApi({ page, limit }) {
+  const { data } = await axios({ params: { page, limit } });
   //   console.log(data);
   return data;
 }

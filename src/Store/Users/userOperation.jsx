@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getUsersApi, updateUserApi } from '../../tweetApi';
 
-export const getUsers = createAsyncThunk('users/getAll', async (_, thunkAPI) => {
+export const getUsers = createAsyncThunk('users/getAll', async ({ page, limit }, thunkAPI) => {
   try {
-    const data = await getUsersApi();
+    const data = await getUsersApi({ page, limit });
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

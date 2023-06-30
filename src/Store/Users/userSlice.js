@@ -3,7 +3,8 @@ import { getUsers, updateUser } from './userOperation';
 
 const initialState = {
   users: [],
-  following: false,
+  filter: '',
+  //   following: false,
   isLoading: false,
   error: '',
 };
@@ -11,22 +12,21 @@ const initialState = {
 export const userSlice = createSlice({
   name: 'userFollowers',
   initialState,
-  //   reducers: {
-  //     filterContactAction: (state, action) => ({
-  //       ...state,
-  //       filter: action.payload,
-  //     }),
-  //   },
+  reducers: {
+    changeFilter: (state, { payload }) => {
+      state.filter = payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getUsers.pending, state => {
         state.isLoading = true;
       })
       .addCase(getUsers.fulfilled, (state, { payload }) => {
-        // console.log(payload);
         state.isLoading = false;
         state.error = null;
-        state.users = payload;
+        state.users = [...state.users, ...payload];
+        state.filter = 'all';
       })
       .addCase(getUsers.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -43,7 +43,7 @@ export const userSlice = createSlice({
         const updatedUsersIdx = state.users.findIndex(el => el.id === id);
         // console.log(updatedUsersIdx);
         state.users[updatedUsersIdx].following = following;
-        state.following = payload.following;
+        // state.following = payload.following;
       })
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -65,7 +65,7 @@ export const userSlice = createSlice({
 });
 
 export const userReducer = userSlice.reducer;
-// export const { addContactAction, deleteContactAction, filterContactAction } = contactSlice.actions;
+export const { changeFilter, deleteContactAction, filterContactAction } = userSlice.actions;
 
 // .addCase(
 //       (addContactOperation.pending,
